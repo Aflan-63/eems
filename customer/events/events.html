@@ -215,25 +215,62 @@
 							<div class="modal-body">
 								<form>
 									<div class="form-group">
-										<label class="text-black font-w500">Event Name</label>
-										<input type="text" class="form-control">
+										<label class="text-black font-w500">Event Poster</label>
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<span class="input-group-text">Upload</span>
+											</div>
+											<div class="custom-file">
+												<input type="file" class="custom-file-input">
+												<label class="custom-file-label">Event Poster (Choose)</label>
+											</div>
+										</div>
 									</div>
+									<div class="form-group">
+										<label class="text-black font-w500">Event Name</label>
+										<input type="text" placeholder="Midnight Craving Party" class="form-control">
+									</div>
+
 									<div class="form-group">
 										<label class="text-black font-w500">Event Date</label>
 										<input type="date" class="form-control">
 									</div>
 									<div class="form-group">
 										<label class="text-black font-w500">Description</label>
-										<input type="text" class="form-control">
+										<input type="text" placeholder="The party will be lit!" class="form-control">
 									</div>
 									<div class="form-group">
-										<button type="button" class="btn btn-primary">Create</button>
+										<label class="text-black font-w500">Location</label>
+										<input type="text" placeholder="Ireland" class="form-control">
+									</div>
+									<div class="form-group">
+										<label class="text-black font-w500">Ticket Price ($)</label>
+										<input type="text" placeholder="55.65$" class="form-control">
+									</div>
+									<div class="form-group">
+										<label class="text-black font-w500">Ticket Quantity</label>
+										<input type="text" placeholder="321" class="form-control">
+									</div>
+
+									<div class="form-group">
+										<label class="mr-sm-2 font-w500">Preference</label>
+										<select class="mr-sm-2 default-select" id="inlineFormCustomSelect">
+											<option selected>Choose...</option>
+											<option value="1">Yes</option>
+											<option value="2">No</option>
+										</select>
+									</div>
+
+									<div class="form-group">
+										<button type="button" class="btn btn-primary" data-dismiss="modal"
+											data-toggle="modal" data-target="#create_event">Create</button>
 									</div>
 								</form>
 							</div>
 						</div>
 					</div>
 				</div>
+
 				<div class="row">
 					<div class="col-lg-12 col-xl-6">
 						<div class="card">
