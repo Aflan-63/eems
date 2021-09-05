@@ -33,6 +33,19 @@
                                         <a href="page-login.html"><img src="../../images/logo-full.svg" alt="logo"
                                                 width="100"></a>
                                     </div>
+                                    <div id="empty_credentials" class="alert alert-danger alert-dismissible fade show">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                                            stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                            class="mr-2">
+                                            <polygon
+                                                points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2">
+                                            </polygon>
+                                            <line x1="15" y1="9" x2="9" y2="15"></line>
+                                            <line x1="9" y1="9" x2="15" y2="15"></line>
+                                        </svg>
+                                        <strong>Username or password is field is empty!</strong>
+                                    </div>
+
                                     <div id="wrong_credentials" class="alert alert-danger alert-dismissible fade show">
                                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
                                             stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
@@ -57,7 +70,7 @@
                                             <label class="mb-1 id=" password"
                                                 text-black"><strong>Password</strong></label>
                                             <input type="password" id="password" class="form-control"
-                                                placeholder="* * * * * *">
+                                                placeholder="* * * * * *" autocomplete="">
                                         </div>
                                         <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                             <div class="form-group">
@@ -97,19 +110,26 @@
     <script src="../../js/deznav-init.js"></script>
     <script>
         $(document).ready(function () {
+
+            $("#empty_credentials").hide();
             $("#wrong_credentials").hide();
+
             const f_email = "test@gmail.com";
             const f_password = "test123";
             $("#sign_in").click(function () {
                 let email = $("#email").val();
                 let password = $("#password").val();
-                console.table(email, password);
                 if (email === f_email && password === f_password) {
                     event.preventDefault();
                     window.location.replace("../dashboard/dashboard.html");
                     console.log("success!");
+                } else if (email.length === 0 || password.length === 0) {
+                    event.preventDefault();
+                    $("#empty_credentials").show("slow");
+                    $("#wrong_credentials").hide();
                 } else {
                     event.preventDefault();
+                    $("#empty_credentials").hide();
                     $("#wrong_credentials").show("slow");
                 }
             })
